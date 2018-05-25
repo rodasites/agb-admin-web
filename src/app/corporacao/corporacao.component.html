@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" routerLink="/corporacao-form">Adicionar</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" style="margin-top:3px; margin-bottom:6px;  ">
+      <div class="input-group" id="adv-search">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Pesquisar" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Corporacao</th>
+            <th>Cordenador Tecnico</th>
+            <th>Regente</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let corporacao of corporacoes | filter : searchText">
+            <td>{{corporacao.nome}}</td>
+            <td>{{corporacao.coordenador}}</td>
+            <td>{{corporacao.regente}}</td>
+            <td style="float: right;"><a routerLink="/corporacao-form/{{corporacao.id}}">Editar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

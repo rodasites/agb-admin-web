@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Integrantes</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2">
+      <button class="btn btn-primary " routerLink="/integrante-form">Cadastrar Integrante</button>
+    </div>
+    <div class="col-2">
+      <a class="btn" routerLink="/integrantes-impressao" target="_blanck">Imprimir Lista</a>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12" style="margin-top:3px; margin-bottom:6px;  ">
+      <div class="input-group" id="adv-search">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Filtrar" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="50%">Nome</th>
+            <th width="15%">Rg</th>
+            <th width="20%">Data de Nascimento</th>
+            <th width="15%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let integrante of integrantes  | filter : searchText">
+            <td>{{ integrante.nome }}</td>
+            <td>{{ integrante.rg }}</td>
+            <td>{{ integrante.data_nascimento | date:"dd/MM/yyyy" }}</td>
+            <td style="float: right;"><a routerLink="/integrante-form/{{integrante.rg}}">Editar Integrante</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

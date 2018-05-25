@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h3> Evento</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form name="formAdicionaEvento" class="form">
+        <div class="row">
+          <div class="col-12 form-group">
+            <input [(ngModel)]="evento.isActive" name="isActive" type="checkbox">
+            <label *ngIf="evento.isActive">Inscrição ativada</label>
+            <label *ngIf="!evento.isActive">Inscrição desativada</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 form-group">
+            <label>Nome:</label>
+          </div>
+          <div class="col-11 form-group">
+            <input [(ngModel)]="evento.nome" class="form-control" type="text" name="nome" placeholder="Nome da Corporação:">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 form-group">
+            <label>Data:</label>
+          </div>
+          <div class="col-11 form-group">
+            <input [textMask]="{mask: maskData}" [(ngModel)]="evento.data" class="form-control" type="text" name="nomeMantenedora" placeholder="Nome da Mantenedora:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 form-group">
+            <button class="btn btn-primary btn-block" (click)="salvarEvento(evento)"> Salvar </button>
+          </div>
+          <div class="col-2 form-group">
+            <button class="btn btn-danger btn-block" routerLink="/evento"> Cancelar </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

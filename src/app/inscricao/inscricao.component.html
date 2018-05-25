@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Inscrições</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary " routerLink="/inscricao-form">Inscrecer corporação</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <label>Selecione o Evento</label>
+      <select name="evento" class="form-control" (change)="carregaInscricoes()" [(ngModel)]="evento">
+          <option *ngFor="let evento of eventos" [ngValue]="evento.id">{{evento.nome}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="evento">
+    <div class="col-12" style="margin-top:3px; margin-bottom:6px;  ">
+      <div class="input-group" id="adv-search">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Filtrar" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="20%">Corporação</th>
+            <th width="10%">Idade</th>
+            <th width="30%">Categoria tecnica</th>
+            <th width="10%">Status</th>
+            <th width="15%"></th>
+            <th width="15%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let inscricao of inscricoes | filter : searchText">
+            <td>{{ inscricao.corporacao }}</td>
+            <td>{{ inscricao.categoria }}</td>
+            <td>{{ inscricao.modalidade }}</td>
+            <td>{{ inscricao.status }}</td>
+            <td><a routerLink="/inscricao-form/{{inscricao.id}}">Editar inscrição</a></td>
+            <td style="float: right;"><a routerLink="/conferencia-form/{{inscricao.id}}">Conferencia</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

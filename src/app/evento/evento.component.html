@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Eventos</h3> 
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+  <button class="btn btn-primary" routerLink = "/evento-form">Adicionar Evento</button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Nome do Evento</th>
+              <th>Data</th>
+              <th></th>
+              
+            </tr>
+            </thead>
+            
+            <tbody>
+          
+            <tr *ngFor="let evento of eventos">
+              <td>{{ evento.nome }}</td>
+              <td>{{ evento.data | date:"dd/MM/yyyy"}}</td>
+              <td style="float: right;"><a routerLink="/evento-form/{{evento.id}}">Editar Evento</a></td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+</div>

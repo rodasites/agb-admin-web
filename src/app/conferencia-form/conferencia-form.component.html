@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Conferência</h3>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-6">
+      <h5>Corporação: {{ corporacao.nome}}</h5>
+      <h5>Modalidade: {{ modalidade.nome}}</h5>
+      <h5>Idade: {{ categoria.nome }}</h5>
+    </div>
+    <div class="col-3">
+      <span><b>Componentes Inscritos:</b> {{ funcao.componentesInscritos}}</span> <br>
+      <span><b>Percursão:</b> {{ funcao.percursao}}</span> <br>
+      <span><b>I. Melódico:</b> {{ funcao.iMelodico}}</span> <br>
+      <span><b>Perc/I.mel:</b> {{ ((funcao.percursao + funcao.iMelodico) * 100) / funcao.componentesInscritos | number}}%</span> <br>
+    </div>
+    <div class="col-3">
+      <span><b>Pelotão de Bandeiras:</b> {{ funcao.pelotaoDeBandeiras}}</span><br>
+      <span><b>Baliza:</b> {{ funcao.baliza}}</span><br>
+      <span><b>Mor:</b> {{ funcao.mor}}</span><br>
+      <span><b>Corpo Coreográfico:</b> {{ funcao.corpoCoreografico}}</span><br>
+    </div>
+  </div>
+  <div class="row border" >
+    <div class="col-12">
+      <table>
+        <tr>
+          <th>Pendência</th>
+        </tr>
+        <tr *ngFor="let pendencia of mensagemPendencias">
+          <td style="color: red">{{ pendencia }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row border-bottom" >
+    <div class="col-12">
+      <h3>Inscritos</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>RG</th>
+            <th>Função</th>
+            <th>Data de Nascimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let integrante of integrantesConferidos">
+            <td>{{ integrante.nome }}</td>
+            <td>{{ integrante.rg }}</td>
+            <td>{{ integrante.funcao }}</td>
+            <td>{{ integrante.data_nascimento | date:"dd/MM/yyyy" }}</td>
+            <td style="float: right;"><button class="btn btn-danger" (click)="updateConfirmado('0', integrante.id)">Remover</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-12">
+      <h3>Pré inscritos</h3>
+      <input type="text" placeholder="Buscar" style="width: 100%">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>RG</th>
+            <th>Função</th>
+            <th>Data de Nascimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let integrante of integrantesInscritos">
+            <td>{{ integrante.nome }}</td>
+            <td>{{ integrante.rg }}</td>
+            <td>{{ integrante.funcao }}</td>
+            <td>{{ integrante.data_nascimento | date:"dd/MM/yyyy" }}</td>
+            <td style="float: right;"><button class="btn btn-primary" (click)="updateConfirmado('1', integrante)">Cadastrar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row" >
+    <button class="btn btn-primary btn-block" disabled="!this.validacao" (click)="updateConfirmado($event, 0)">Confirmar inscrição</button>
+  </div>
+</div>

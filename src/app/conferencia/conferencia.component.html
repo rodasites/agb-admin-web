@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Inscrições</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Corporação</th>
+            <th>Categoria tecnica</th>
+            <th>Idade</th>
+            <th>Evento</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let inscricao of inscricoes">
+            <td>{{ inscricao.corporacao }}</td>
+            <td>{{ inscricao.categoria }}</td>
+            <td>{{ inscricao.modalidade }}</td>
+            <td>{{ inscricao.evento }}</td>
+            <td style="float: right;"><a routerLink="/conferencia-form/{{inscricao.id}}">Conferir</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

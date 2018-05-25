@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+          <label >Evento</label>
+          <select name="evento" class="form-control" [(ngModel)]="inscricao.eventos">
+              <option *ngFor="let e of eventos" [ngValue]="e.id">{{e.nome}}</option>
+          </select>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-6">
+      <label >Corporação</label>
+      <select name="corporacao" class="form-control" [(ngModel)]="inscricao.corporacoes">
+          <option *ngFor="let c of corporacoes" [ngValue]="c.id">{{c.nome}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <label >Faixa Etária</label>
+      <select name="idade" class="form-control" [(ngModel)]="inscricao.categorias">
+              <option value="1" >Infantil</option>
+              <option value="2" >Infanto Juvenil</option>
+              <option value="3" >Juvenil</option>
+              <option value="4" >Senior</option>
+            </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+        <label >Categoria Técnica</label>
+      <select name="modalidade" class="form-control" [(ngModel)]="inscricao.modalidades">
+            <option value="" >Selecione a modalidade</option>
+            <option value="1" >Banda de Percussão </option>
+            <option value="2" >Banda de Percussão Marcial</option>
+            <option value="3" >Banda de Percussão com Instrumentos Melódicos Simples</option>
+            <option value="4" >Banda de Percussão Sinfônica</option>
+            <option value="5" >Banda Marcial</option>
+            <option value="6" >Banda Musical de Concerto</option>
+            <option value="7" >Banda Musical de Marcha</option>
+            <option value="8" >Banda Sinfônica</option>
+            <option value="9" >Brass Band</option>
+            <option value="10" >Fanfarra Simples Tradicional</option>
+            <option value="11" >Fanfarra Simples Marcial</option>
+            <option value="12" >Fanfarra Com 1 Pisto</option>
+          </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary " *ngIf="isNew == true"  (click)="adicionarModalidade()"> Inscrever </button>
+        <button class="btn btn-primary " *ngIf="isNew == false"  (click)="salvarModalidade()"> Salvar </button>
+        <button class="btn btn-danger " routerLink="/inscricao"> Cancelar </button>
+    </div>
+  </div>
+</div>
+
+
+

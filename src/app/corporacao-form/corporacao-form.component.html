@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <h3> Corporações</h3> <br>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form name="formAdicionaCorporacao">
+        <div class="row ">
+          <div class="col-12 form-group">
+            <label>Nome:</label>
+            <input [(ngModel)]="corporacao.nome" class="form-control" type="text" name="nome" placeholder="Nome da Corporação:">
+          </div>
+        </div>
+    
+        <div class="row ">
+          <div class="col-4 form-group">
+            <label>Usuário:</label>
+            <input [(ngModel)]="corporacao.usuario" class="form-control" type="text" name="usuario" placeholder="Usuario:">
+          </div>
+          <div class="col-4 form-group">
+            <label for="">Senha:</label>
+            <input [(ngModel)]="corporacao.senha" class="form-control" type="password" name="senha" placeholder="Senha:">
+          </div>
+          <div class="col-4 form-group">
+            <label for="">Confirmar senha:</label>
+            <input [(ngModel)]="corporacao.confSenha" class="form-control" type="password" name="confirmaSenha" placeholder="Confirme a Senha:">
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-9 form-group">
+            <label for="">Mantenedora:</label>
+            <input [(ngModel)]="corporacao.mantenedora" class="form-control" type="text" name="nomeMantenedora" placeholder="Nome da Mantenedora:">
+          </div>
+          <div class="col-3 form-group">
+            <label for="">CNPJ:</label>
+            <input [textMask]="{mask: maskCnpj}" [(ngModel)]="corporacao.cnpj" class="form-control" type="text" name="cnpj" placeholder="CNPJ Mantenedora:">
+          </div>
+        </div>
+    
+    
+        <div class="row">
+          <div class="col-6 form-group">
+            <label for="">Responsável pela Mantenedora:</label>
+            <input [(ngModel)]="corporacao.nome_responsavel_mantenedora" class="form-control" type="text" name="nome_responsavel_mantenedora"
+              placeholder="Nome do Responsável pela Mantenedora:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 form-group">
+              <label for="">CEP:</label>
+            <input [textMask]="{mask: maskCep}" [(ngModel)]="corporacao.cep" (blur)="consultaCep($event.target.value)" class="form-control"
+              type="text" name="cep" placeholder="CEP:" #cep="ngModel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 form-group">
+              <label for="">Bairro:</label>
+            <input [(ngModel)]="corporacao.bairro" class="form-control" type="text" name="bairro" placeholder="Bairro:">
+          </div>
+          <div class="col-6 form-group">
+              <label for="">Cidade:</label>
+            <input [(ngModel)]="corporacao.cidade" class="form-control" type="text" name="cidade" placeholder="Cidade:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-group">
+              <label for="">Endereço:</label>
+            <input [(ngModel)]="corporacao.endereco" class="form-control" type="text" name="endereco" placeholder="Endereço da Mantenedora:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 form-group">
+              <label for="">Coordenador:</label>
+            <input [(ngModel)]="corporacao.coordenador" class="form-control" type="text" name="coordenador" placeholder="Nome do Coordenador:">
+          </div>
+          <div class="col-4 form-group">
+              <label for="">Telefone Coordenador:</label>
+            <input [(ngModel)]="corporacao.tel_coordenador" class="form-control" type="text" name="tel_coordenador" placeholder="Telefone do Coordenador:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 form-group">
+              <label for="">Regente:</label>
+            <input [(ngModel)]="corporacao.regente" class="form-control" type="text" name="regente" placeholder="Nome do Regente:">
+          </div>
+          <div class="col-4 form-group">
+              <label for="">Telefone Regente:</label>
+            <input [(ngModel)]="corporacao.telefone_regente" class="form-control" type="text" name="telefone_regente" placeholder="Telefone do Regente:">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 form-group">
+            <button class="btn btn-primary btn-block" (click)="salvarCorporacao(corporacao)"> Salvar </button>
+          </div>
+          <div class="col-2 form-group">
+            <button class="btn btn-danger btn-block" routerLink="/corporacao"> Cancelar </button>
+          </div>
+        </div>
+    
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
